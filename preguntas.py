@@ -126,11 +126,11 @@ def pregunta_04():
     df = pd.read_csv("gm_2008_region.csv")
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df["fertility"].to_numpy().reshape(-1,1)
+    X_fertility = df["fertility"].values
 
 
     # Asigne a la variable los valores de la columna `life`
-    y_life = df["life"].to_numpy().reshape(-1,1)
+    y_life = df["life"].values
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
@@ -142,7 +142,7 @@ def pregunta_04():
     )
 
     # Cree una instancia del modelo de regresión lineal
-    linearRegression = linearRegression()
+    linearRegression = LinearRegression()
 
     # Entrene el clasificador usando X_train y y_train
     linearRegression.fit(X_train, y_train)
